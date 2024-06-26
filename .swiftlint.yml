@@ -1,0 +1,4 @@
+disabled_rules:
+    - unneeded_override
+    - line_length
+    - identifier_name

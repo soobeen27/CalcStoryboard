@@ -13,6 +13,7 @@
 		F42A73F62C2BDB5B00763AEA /* Base in Resources */ = {isa = PBXBuildFile; fileRef = F42A73F52C2BDB5B00763AEA /* Base */; };
 		F42A73F82C2BDB5C00763AEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F42A73F72C2BDB5C00763AEA /* Assets.xcassets */; };
 		F42A73FB2C2BDB5C00763AEA /* Base in Resources */ = {isa = PBXBuildFile; fileRef = F42A73FA2C2BDB5C00763AEA /* Base */; };
+		F42A74042C2BDC6A00763AEA /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = F42A74032C2BDC6A00763AEA /* .swiftlint.yml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		F42A73F72C2BDB5C00763AEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F42A73FA2C2BDB5C00763AEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F42A73FC2C2BDB5C00763AEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F42A74032C2BDC6A00763AEA /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,7 @@
 		F42A73E22C2BDB5B00763AEA = {
 			isa = PBXGroup;
 			children = (
+				F42A74032C2BDC6A00763AEA /* .swiftlint.yml */,
 				F42A73ED2C2BDB5B00763AEA /* CalcStoryboard */,
 				F42A73EC2C2BDB5B00763AEA /* Products */,
 			);
@@ -77,6 +80,7 @@
 				F42A73E72C2BDB5B00763AEA /* Sources */,
 				F42A73E82C2BDB5B00763AEA /* Frameworks */,
 				F42A73E92C2BDB5B00763AEA /* Resources */,
+				F42A74022C2BDB8300763AEA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -125,6 +129,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F42A74042C2BDC6A00763AEA /* .swiftlint.yml in Resources */,
 				F42A73F82C2BDB5C00763AEA /* Assets.xcassets in Resources */,
 				F42A73FB2C2BDB5C00763AEA /* Base in Resources */,
 				F42A73F62C2BDB5B00763AEA /* Base in Resources */,
@@ -132,6 +137,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F42A74022C2BDB8300763AEA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif [[ \"$(uname -m)\" == arm64 ]]\nthen\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif command -v swiftlint >/dev/null 2>&1\nthen\n    swiftlint\nelse\n    echo \"warning: `swiftlint` command not found - See https://github.com/realm/SwiftLint#installation for installation instructions.\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F42A73E72C2BDB5B00763AEA /* Sources */ = {
@@ -203,7 +229,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -266,7 +292,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
