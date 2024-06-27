@@ -46,6 +46,9 @@ class ViewController: UIViewController {
         case "AC":
             expression = "0"
         case "=":
+            if Buttons.operators.contains(String(expression.last ?? " ")) {
+                expression.removeLast()
+            }
             let calcExp = expression.replacingOccurrences(of: Buttons.multiplMark, with: "*").replacingOccurrences(of: Buttons.divisionMark, with: "/")
             guard let result = calculate(expression: calcExp) else { return }
             expression = String(result)
